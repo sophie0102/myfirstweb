@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            margin: 0px; /*滿版*/
+            padding-top: 30px;
+        }
+        p{
+            margin: 0px;
+        }
+        #img01{
+            width: 100%;
+            height: 100vh;
+            background-color: gray;
+            position: relative;
+            background-image: url('https://static.wixstatic.com/media/4d73d7_0908bf46d6844cd6af620f16d6001840~mv2.jpg/v1/fill/w_1895,h_1263,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4d73d7_0908bf46d6844cd6af620f16d6001840~mv2.jpg');
+            background-repeat: no-repeat;
+            background-size: cover; /*縮放到可將整個板塊填滿，圖片被切到也沒關係*/
+            /* contain 縮放到可將整個板塊填滿，但不會切到圖片*/
+            background-position: center;
+            background-attachment: fixed; /*視差效果 上在圖片中*/
+        }
+        #title01{
+            width: 500px;
+            height: 300px;
+            background-color: rgba(220, 220, 220, 0) ; /*rgba 區塊透明 a=0, 文字不透明*/
+            position: absolute;
+            top: 0px;      /*top: calc(50% - 100px);*/
+            right: 0px;    /*left: calc(50% - 250px);*/
+            bottom: 0px;
+            left: 0px;
+            margin: auto;
+
+            /* 文字水平垂直置中 text-align & line-height*/
+            text-align: center; /*text-align 文字水平對齊*/
+            line-height: 100px; /*設定與被包著的區塊高一樣即可*/
+
+            font-size: 54px; /*字型大小*/
+            letter-spacing: 5px; /*字距*/
+            color: white; 
+        }
+        #text01{
+            width: 100%;
+            /* height: 50vh;   因使用box-sizing 所以不用設高度 高度會隨著文字增加而增加*/
+            background-color: antiquewhite;
+            padding: 50px 100px; /*固定住外框的外距*/
+            box-sizing: border-box; /*自動扣除padding外距 不需更改區塊寬 要把hegiht刪掉*/
+        }
+        #texttitle{
+            text-align: center;
+            letter-spacing: 15px;
+            font-size: 54px;
+            font-weight: bold; /*粗體*/
+            margin-bottom: 10px;
+        }
+        #content01{
+            text-align: justify ; /*文字左右皆對齊*/
+            font-size: 20px;
+            line-height: 60px; /*單獨設為 行高*/
+            font-family: '標楷體','微軟正黑體';
+        }
+        #img02{
+            width: 100%;
+            height: 50vh;
+            background-color: antiquewhite;
+            position: relative;
+            background-image: url('https://img.freepik.com/photos-gratuite/vue-dessus-grains-cafe-espace-fond-blanc-pour-texte_176474-5028.jpg?w=2000');
+            background-repeat: no-repeat;
+            background-position: top; /* 圖片定位*/
+            background-size: cover;
+            background-attachment: fixed;
+
+        }
+        #title02{
+            width: 500px;
+            height: 100px;
+            background-color: rgba(245, 222, 179, 0.7);
+            border-radius: 35px; /*區塊圓弧形*/
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            margin: auto;
+            text-align: center; 
+            line-height: 100px; 
+            font-size: 48px;
+            letter-spacing: 5px;
+            color: white;
+        }
+        #text02{
+            width: 100%;
+            /* height: 50vh; */
+            background-color: antiquewhite;
+            position: relative; 
+            padding: 50px 100px; 
+            box-sizing: border-box; 
+        }
+        #content02{
+            text-align: left; 
+            /* line-height: 50vh; */
+            font-size: 20px;
+            line-height: 60px; 
+            font-family: '標楷體','微軟正黑體';
+        }
+        #img03{
+            width: 100%;
+            height: 50vh;
+            background-color: silver;
+            position: relative;
+            background-image: url('https://img.freepik.com/photos-gratuite/vue-dessus-grains-cafe-espace-fond-blanc-pour-texte_176474-5028.jpg?w=2000');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        #title03{
+            width: 500px;
+            height: 100px;
+            background-color: rgba(245, 222, 179, 0.7);
+            border-radius: 35px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            margin: auto;
+            text-align: center; 
+            line-height: 100px; 
+            font-size: 48px;
+            color: white; 
+            letter-spacing: 5px;
+        }#text03{
+            width: 100%;
+            /* height: 25vh; */
+            background-color: antiquewhite;
+            position: relative;
+            padding: 50px 100px; 
+            box-sizing: border-box; 
+        }
+        #content03{
+            text-align: left; 
+            /* line-height: 25vh;  */
+            font-size: 20px;
+            line-height: 60px; 
+            font-family: '標楷體','微軟正黑體';
+        }
+        #img04{
+            width: 100%;
+            height: 100vh;
+            background-color: antiquewhite;
+            position: relative;
+            background-image: url('https://www.homeboylife.net/wp-content/uploads/2019/09/67455833_709515099488780_7263890003732725760_o.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        #title04{
+            width: 500px;
+            height: 100px;
+            background-color: rgba(211, 211, 211, 0.7);
+            border-radius: 35px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            margin: auto;
+            text-align: center;
+            line-height: 100px;
+            font-size: 56px;
+            letter-spacing: 5px;
+            color: white;
+        }
+        #nav{
+            width: 100%;
+            /* height: 50px; */
+            background-color: lightgrey;
+            padding: 0px 25px;
+            box-sizing: border-box;
+            line-height: 30px;
+            font-size: 17px;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+        }
+        #link01{
+            margin-right: 20px;
+        }
+        #link02{
+            margin-right: 20px;
+        }
+        #link03{
+            margin-right: 20px;
+        }
+        #link04{
+            margin-right: 20px;
+        }
+        #anchor02{
+            position: absolute;
+            top: -30px;
+        }
+        #anchor03{
+            position: absolute;
+            top: -30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- img 圖片區塊設定 text 文字區塊設定 title 圖片區塊設定 content 文字內容 nav 導覽列-->
+    <div id="nav">
+        <a href="#img01" id="link01">HECHO GROUP</a>
+        <a href="#anchor02" id="link02">KEEP CALM</a>
+        <a href="#anchor03" id="link03">HAVE A COFFEE</a>
+        <a href="#img04" id="link04">CAFE</a>
+    </div>
+    <!-- #id名稱  一頁式超連結 -->
+    <div id="img01">
+        <div id="title01" >HECHO GROUP</div>
+    </div>
+    <div id="text01">
+        <div id="texttitle">HECHO'S STORY</div>
+        <p id="content01">&nbsp&nbsp&nbsp一個創造無數故事的地方，新的劇本每天正在上演。顧客是觀眾，看著我們表演之餘還品嚐著變魔術般的美食，為了讓場景不同，我們正努力地不斷創造。
+        <br/>
+        &nbsp&nbsp&nbsp無框架使我們無束縛，不同的分店各自擁有自我風格，賦予建築物新生命。未來擁有更多可能，更多令人不可置性的創造力！現在讓我們一起進入做系列的列車，準備開始這趟期待已久的旅程吧！ 
+        </p>
+         <!-- &nbsp; 會空一格 -->
+    </div>
+    <div id="img02">
+        <div id="anchor02"></div>
+        <div id="title02">KEEP CALM</div>
+    </div>
+    <div id="text02">
+        <p id="content02">現代街頭風格的咖啡廳，現代烹飪技巧，完全展現新鮮食材風味，現打果汁、傳統虹吸式現煮咖啡，新與舊的結合，在這浪漫空間內發揮得淋漓盡致，大傘及大樹在這空間擁護著大家。</p>
+    </div>
+    <div id="img03">
+        <div id="anchor03"></div>
+        <div id="title03">HAVE A COFFEE</div>
+    </div>
+    <div id="text03">
+        <p id="content03">喝上一杯上好咖啡或新鮮果汁，搭配現烤蘋果派，會是您難忘的下午。</p>
+    </div>
+    <div id="img04">
+        <div id="title04">CAFE</div>
+    </div>
+</body>
+</html>
